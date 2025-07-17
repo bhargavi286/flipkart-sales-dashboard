@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Sales Report</title>
+    <style>
+        body { font-family: Arial; padding: 20px; }
+        h1 { color: #2c3e50; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { padding: 8px 12px; border: 1px solid #ccc; text-align: center; }
+    </style>
+</head>
+<body>
+    <h1>Flipkart Sales Report</h1>
+    <p><strong>Total Revenue:</strong> ₹{{ total_revenue | round(2) }}</p>
+    <p><strong>Top Performing Region:</strong> {{ top_region }}</p>
+    <p><strong>Top Product Category:</strong> {{ top_category }}</p>
+
+    <h2>Revenue Summary by Region and Category</h2>
+    {{ summary_table | safe }}
+
+</body>
+</html>
+

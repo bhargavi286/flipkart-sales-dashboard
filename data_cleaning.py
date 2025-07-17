@@ -1,0 +1,15 @@
+import pandas as pd
+df = pd.read_csv('final_output.csv')
+print("Missing values before cleaning:")
+print(df.isnull().sum())
+print()
+df['Date'] = pd.to_datetime(df['Date'], format='%d-%m-%Y', errors='coerce')
+df = df.dropna(subset=['Date', 'Product', 'Revenue'])
+print("Missing values after cleaning:")
+print(df.isnull().sum())
+print()
+print("Data types after conversion:")
+print(df.dtypes)
+df.to_csv('final_output_cleaned.csv', index=False)
+print("\n Cleaned data saved to 'final_output_cleaned.csv'")
+
